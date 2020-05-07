@@ -1,0 +1,152 @@
+$light-green: rgb(210, 255, 210);
+$dark-green: rgb(69, 80, 62);
+
+$montserrat: 'Montserrat', sans-serif;
+$open-sans: 'Open Sans', sans-serif;
+
+$mobile: 640px;
+$tablet: 800px;
+
+@mixin mobile {
+    @media (max-width: #{$mobile}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (max-width: #{$tablet}) {
+        @content;
+    }
+}
+
+body, html {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+header {
+    background: $light-green;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 2rem;
+    font-size: 1.5rem;
+
+    @include mobile {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    h1 {
+        font-family: $montserrat;
+        color: $dark-green;
+        margin: .5rem;
+    }
+
+    span {
+        color: $dark-green;
+    }
+}
+
+nav {
+    background: #fff;
+    display: flex;
+    justify-content: center;
+
+    a {
+        font-family: $open-sans;
+        font-weight: 600;
+        font-size: .7rem;
+        color: $dark-green;
+        background: $light-green;
+        padding: .5rem 1rem;
+        border: 1px solid $light-green;
+    }
+
+    a:hover {
+        background: #fff;
+        border: 1px solid $dark-green;
+    }
+}
+
+main {
+
+    h1 {
+        font-family: $montserrat;
+        color: $dark-green;
+        text-align: center;
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+    }
+
+    section.gallery {
+        background: #fff;
+        margin: 0 auto 3rem auto;
+        max-width: 1024px;
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(3, 1fr);
+
+        @include tablet {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include mobile {
+            grid-template-columns: 1fr;
+        }
+
+        article {
+            background: $light-green;
+            color: $dark-green;
+            font-family: $montserrat;
+            text-align: center;
+            padding: 1.5rem;
+            box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.25);
+
+            img {
+                width: 100%;
+                border: 1px solid $dark-green;
+            }
+
+            p {
+                font-family: $open-sans;
+                font-size: .8rem;
+            }
+
+            button {
+                padding: .5rem 1rem;
+                background: #fff;
+                border: 1px solid $dark-green;
+                font-family: $open-sans;
+                font-weight: 600;
+                color: $dark-green;
+            }
+
+            button:hover {
+                border: none;
+            }
+        }
+    }
+}
+
+footer {
+    background: $dark-green;
+    color: $light-green;
+    font-family: $montserrat;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    p {
+        max-width: 300px;
+        text-align: center;
+        font-family: $open-sans;
+        font-size: .7rem;
+    }
+}
